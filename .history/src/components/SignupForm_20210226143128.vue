@@ -1,0 +1,93 @@
+<template>
+  <form>
+    <!-- 
+      v-model syncs the data in the input with the data properties.
+      We can set the default value of a form element by entering it
+      in the data().
+    -->
+    <div class="field">
+      <label>Email: </label>
+      <input type="email" required v-model="email" />
+    </div>
+    <div class="field">
+      <label>Password: </label>
+      <input type="password" required v-model="password" />
+    </div>
+    <div class="field">
+      <label>Role: </label>
+      <select v-model="role">
+        <option value="">Please choose...</option>
+        <option value="Designer">Web Designer</option>
+        <option value="Developer">Web Developer</option>
+      </select>
+    </div>
+    <div class="field checkboxField">
+      <input type="checkbox" required />
+      <label>Agree T&amp;Cs</label>
+    </div>
+  </form>
+
+  <p>Email: {{email}}</p>
+  <p>Password: {{password}}</p>
+  <p>Role: {{role}} </p>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      email: 'abc@123.com',
+      password: 'helloworld',
+      role: ''
+    }
+  }
+}
+</script>
+
+<style scoped>
+  form {
+    max-width: 420px;
+    border-radius: 5px;
+    background: white;
+    padding: 20px;
+    margin: 0 auto;
+  }
+
+  label {
+    font-weight: 700;
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+  }
+
+  input, select {
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    padding: 3px;
+    border: none;
+    border-bottom: 2px dashed rgb(139, 139, 139);
+  }
+
+  input:focus,
+  select:focus {
+    outline: none;
+    border-bottom: 2px solid rgb(139, 139, 139);
+  }
+
+  input[type=checkbox] {
+    display: inline-block;
+    width: 16px;
+    margin: 0 10px 0 0;
+    position: relative;
+    top: 20px;
+  }
+
+  .checkboxField label {
+    display: inline-block';
+  }
+
+  .field {
+    margin-bottom: 40px;
+  }
+</style>
